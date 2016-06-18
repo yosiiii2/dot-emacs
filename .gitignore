@@ -1,0 +1,12 @@
+# /.gitignore
+undohist/
+/ac-comphist.dat
+auto-save-list/
+/bm-repository
+/recentf
+eshell/
+url/
+semanticdb/
+
+
+
