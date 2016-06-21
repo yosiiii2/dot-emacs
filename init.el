@@ -27,12 +27,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(recentf-exclude (quote ("Users/Admin/Desctop/programing/keisanki3/kadai*/*")))
  '(anzu-deactivate-region t)
  '(anzu-mode-lighter "")
- '(anzu-search-threshold 1000))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(font-lock-comment-face ((t (:foreground "red")))))
+ '(anzu-search-threshold 1000)
+ '(org-agenda-files (quote ("~/Dropbox/org-mode/schedule.org"))))

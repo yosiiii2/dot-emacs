@@ -6,6 +6,7 @@
 (setq org-ditaa-jar-path "~/.emacs.d/ditaa.jar")
 
 (setq org-confirm-babel-evaluate nil)
+;; (setq org-directory "~/Dropbox/org-mode/")
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -36,13 +37,14 @@
 
 (bind-key "C-." 'org-table-previous-field)
 (bind-key "C-c a" 'org-agenda org-mode-map)
+;; (setq org-agenda-files '("/Users/admin/Dropbox/org-mode/schedule.org"))
 
 (setq org-src-preserve-indentation t)
 
 ;;; \hypersetup{}を表示しない
 (setq org-latex-with-hyperref nil)
 
-(setq org-agenda-files '("/Users/admin/Desktop/schedule.org"))
+
 
 ;; (global-set-key "\C-c l" 'org-store-link)
 ;; (global-set-key "\C-c c" 'org-capture)
