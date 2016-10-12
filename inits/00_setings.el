@@ -2,15 +2,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 
-;;;; whitespaceをいじる
-;;(global-whitespace-mode 1)
-;; (setq whitespace-space-regexp "")
-;; (setq whitespace-style '(face tabs tab-mark spaces space-mark))
-;; (setq whitespace-display-mappings ())
-;; (set-face-foreground 'whitespace-tab "#F1C40F")
-;; (set-face-background 'whitespace-space "#E74C3C")
+;;;; 保存時に末尾のスペースをいい感じに消してくれる
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
- 
 ;;region可視化
 (setq transient-mark-mode t)
 
@@ -31,7 +25,7 @@
     (set-buffer-process-coding-system 'utf-8 'utf-8)))
 
 
-;;\を\とする
+;;円マークを\とする
 (define-key global-map [165] [92])
 
 

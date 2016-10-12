@@ -30,20 +30,22 @@
 ;;eval-buffer
 (bind-key "<f2> e" 'eval-buffer)
 
-;; shellでの強制終了
+;; shellでの強制終了 C-c が使えないから代わりのやつ
 (eval-after-load 'shell '(bind-key "C-c x" 'comint-interrupt-subjob shell-mode-map))
 
-;;kill-whole-line
+;; kill-whole-line
+;; カーソルのある行を丸々killしたりcopyしたりする
+;; C-aしてC-kしてC-yするのめんどいし的な
 (bind-key "C-S-K" 'kill-whole-line)
+;; copy-whole-lineは90_def-func.el参照
 (bind-key "M-k" 'copy-whole-line)
 
+
+;; eshell起動
 (bind-key "C-c s" 'eshell)
+;; 行へ移動
 (bind-key "C-c g" 'goto-line)
-(bind-key "C-c C-c" 'comment-or-uncomment-region)
 
 ;; word region
 (unbind-key "C-@")
 (bind-key "C-@" 'mark-word*)
-
-
-

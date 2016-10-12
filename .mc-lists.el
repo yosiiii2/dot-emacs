@@ -7,8 +7,13 @@
 
 (setq mc/cmds-to-run-once
       '(
-		point-undo
-		undo-tree-visualize
+		eshell
 		helm-M-x
+		mc/mark-next-lines
+		org-force-self-insert
+		org-self-insert-command
+		point-undo
 		save-buffers-kill-terminal
+		undo-tree-visualize
+		yas-expand
 		))

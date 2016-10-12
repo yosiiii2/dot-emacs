@@ -1,17 +1,19 @@
 ;; ;;org-mode *********************************************************************
 (require 'ox-latex)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(setq org-startup-folded 'showeverything)
-(setq org-latex-default-class "thesis")
-(setq org-ditaa-jar-path "~/.emacs.d/ditaa.jar")
+(setq org-startup-folded 'showeverything) ;; tabで畳める系のものを、起動時には開いた状態で起動
+(setq org-latex-default-class "thesis") ;;下で定義してるthesisをdefaultのclassとして定義
 
-(setq org-confirm-babel-evaluate nil)
+
+(setq org-confirm-babel-evaluate nil) ;; おまじない
 ;; (setq org-directory "~/Dropbox/org-mode/")
 
+;; ditaaとdotを使えるようにする
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((ditaa . t)
    (dot . t)))
+(setq org-ditaa-jar-path "~/.emacs.d/ditaa.jar")
 
 
 ;;プリアンブル設定
@@ -20,6 +22,8 @@
                "\\documentclass{jsarticle}
                 [NO-PACKAGES]
                 [NO-DEFAULT-PACKAGES]
+                \\usepackage{amsmath}
+                \\usepackage{ulem}
                 \\usepackage[dvipdfmx]{graphicx}
                 \\usepackage{listings}
                 \\usepackage[top=10truemm,bottom=10truemm,left=25truemm,right=25truemm]{geometry}"
@@ -32,8 +36,10 @@
 
 
 
-(setq org-export-latex-coding-system 'utf-8-unix)
-(setq org-latex-pdf-process '("platex %f" "dvipdfmx %b.dvi"))
+(setq org-export-latex-coding-system 'utf-8-unix) ;; latexに変換する時の文字コード
+(setq org-latex-pdf-process '("platex %f" "dvipdfmx %b.dvi" "rm %b.dvi"))
+;; latexにコンパイルするためのコマンド列を書いておく
+;; test.texに対して、%fが"test.tex"で、%bが"test"になる
 
 (bind-key "C-." 'org-table-previous-field)
 (bind-key "C-c a" 'org-agenda org-mode-map)
@@ -44,6 +50,19 @@
 ;;; \hypersetup{}を表示しない
 (setq org-latex-with-hyperref nil)
 
+;; (defun jb/disable-plain-footnotes-hack ()
+;;    (if (plist-get opt-plist :no-plain-footnotes)
+;;       (save-excursion
+;;         (goto-char 1)
+;;         (replace-regexp "\\[\\([0-9]+\\)\\]" "[\u200B\\1]"))))
+
+;; (add-to-list 'org-export-inbuffer-options-extra
+;; '("DISABLE_PLAIN_FOOTNOTES" :no-plain-footnotes))
+
+(add-hook 'org-export-preprocess-hook
+'jb/disable-plain-footnotes-hack)
+
+;; 以下コピペ
 
 
 ;; (global-set-key "\C-c l" 'org-store-link)
@@ -58,8 +77,6 @@
 ;; author      著者情報を出力するかどうか (nil / t)
 ;; creator     出力ツール (Emacs と Org-mode) 情報を出力するかどうか (nil / t)
 ;; timestamp   タイムスタンプを出力するかどうか (nil / t)
-
-
 
 ;; (defconst org-export-options-alist
 ;;   '((:author "AUTHOR" nil user-full-name t)
@@ -102,5 +119,3 @@
 ;;     (:with-timestamps nil "<" org-export-with-timestamps)
 ;;     (:with-todo-keywords nil "todo" org-export-with-todo-keywords))
 ;;   "Alist between export properties and ways to set them.
-
-

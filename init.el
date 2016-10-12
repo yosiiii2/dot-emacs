@@ -5,6 +5,7 @@
 (package-initialize)
 
 (setq load-path (cons "~/.emacs.d/elpa/" load-path))
+(setq load-path (cons "~/.emacs.d/elpa/ox-hatena/" load-path))
 
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/inits")
