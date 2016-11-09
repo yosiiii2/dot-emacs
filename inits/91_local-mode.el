@@ -1,5 +1,4 @@
-(setq load-path (cons "~/.emacs.d/elpa/" load-path))
-
+(require 'auto-complete)
 ;; ;;scheme-mode *******************************************************************
 (setq scheme-program-name "java -jar /Users/admin/Desktop/programing/progen/jakld.jar")
 
@@ -18,11 +17,11 @@
 ;; ;; smalltalk-mode *******************************************************************
 
 (push (cons "\\.star\\'"
-	    (catch 'archive-mode
-	      (dolist (mode-assoc auto-mode-alist 'archive-mode)
-		(and (string-match (car mode-assoc) "Starfile.zip")
-		     (functionp (cdr mode-assoc))
-		     (throw 'archive-mode (cdr mode-assoc))))))
+			(catch 'archive-mode
+			  (dolist (mode-assoc auto-mode-alist 'archive-mode)
+				(and (string-match (car mode-assoc) "Starfile.zip")
+					 (functionp (cdr mode-assoc))
+					 (throw 'archive-mode (cdr mode-assoc))))))
       auto-mode-alist)
 
 (autoload 'smalltalk-mode "smalltalk-mode.elc" "" t)
@@ -35,6 +34,7 @@
 ;; ;; Haskell-mode *****************************************************************
 (require 'haskell-mode)
 (require 'haskell-cabal)
+
 (add-to-list 'auto-mode-alist '(".hs$" . haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.lhs$" . literate-haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
@@ -59,6 +59,7 @@
 (require 'scala-mode)
 
 ;;; Use auto-complete for ensime
+(require 'ensime)
 (setq ensime-completion-style 'auto-complete)
 
 (defun scala/enable-eldoc ()
@@ -70,7 +71,6 @@
   (eldoc-mode +1))
 
 (bind-key "C-t" `ensime-type-at-point scala-mode-map)
-
 
 (defun scala/completing-dot-company ()
   (cond (company-backend
@@ -107,3 +107,66 @@
 (add-hook 'ensime-mode-hook #'scala/enable-eldoc)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 (add-hook 'scala-mode-hook 'flycheck-mode)
+
+(setq ensime-use-helm t)
+
+
+;;; ruby-mode
+
+(add-to-list 'load-path "Enhanced-Ruby-Mode") ; must be added after any path containing old ruby-mode
+(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
+(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
+
+(add-to-list 'auto-mode-alist
+             '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
+
+
+;; (autoload 'ruby-mode "ruby-mode"
+;;   "Mode for editing ruby source files" t)
+;; (add-to-list 'auto-mode-alist '("\\.rb$latex " . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+
+(require 'ruby-electric)
+(add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
+(setq ruby-electric-expand-delimiters-list nil)
+
+;; smart-compile
+(require 'smart-compile)
+(define-key ruby-mode-map (kbd "C-c c") 'smart-compile)
+(define-key ruby-mode-map (kbd "C-c C-c") (kbd "C-c c C-m"))
+(setq compilation-window-height 15) ;; default window height is 15
+
+;; ruby-block.el --- highlight matching block
+(require 'ruby-block)
+(ruby-block-mode t)
+(setq ruby-block-highlight-toggle t)
+
+
+
+
+
+;; pytho-mode ;;;;;;;
+(require 'python-mode)
+(require 'jedi)
+(require 'py-autopep8)
+(require 'flycheck-pyflakes)
+
+(jedi:setup)
+(define-key jedi-mode-map (kbd "<C-tab>") nil) ;;C-tabはウィンドウの移動に用いる
+(setq jedi:complete-on-dot t)
+(setq ac-sources
+	  (delete 'ac-source-words-in-same-mode-buffers ac-sources)) ;;jediの補完候補だけでいい
+(add-to-list 'ac-sources 'ac-source-filename)
+(add-to-list 'ac-sources 'ac-source-jedi-direct)
+
+(add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
+
+(define-key python-mode-map "\C-ct" 'jedi:goto-definition)
+(define-key python-mode-map "\C-cb" 'jedi:goto-definition-pop-marker)
+(define-key python-mode-map "\C-cr" 'helm-jedi-related-names)
+
+(setq py-autopep8-options '("--max-line-length=200"))
+(setq flycheck-flake8-maximum-line-length 200)
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)

@@ -1,14 +1,15 @@
 ;;buffer間の移動
-(setq load-path (cons "~/.emacs.d/elpa/" load-path))
 (bind-key* "C-c <left>" 'windmove-left)
 (bind-key* "C-c <down>" 'windmove-down)
 (bind-key* "C-c <up>" 'windmove-up)
 (bind-key* "C-c <right>" 'windmove-right)
-(bind-key* "C-c n" 'windmove-down)
-(bind-key* "C-c p" 'windmove-up)
-(bind-key* "C-c b" 'windmove-left)
-(bind-key* "C-c f" 'windmove-right)
+;; (bind-key* "C-c n" 'windmove-down)
+;; (bind-key* "C-c p" 'windmove-up)
+;; (bind-key* "C-c b" 'windmove-left)
+;; (bind-key* "C-c f" 'windmove-right)
 
+
+(bind-key* "C-h" 'backword-delete-char-untabify)
 
 ;;カーソル移動
 (unbind-key "M-l")

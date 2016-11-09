@@ -1,6 +1,6 @@
 ;; (require 'ido-occasional)
 ;; (require 'ido-vertical-mode)
-;; (require 'helm-swoop)
+(require 'helm-swoop)
 ;; (require 'imenus)
 ;; (setq ido-enable-flex-matching t)
 ;; (ido-vertical-mode 1)
@@ -43,6 +43,8 @@
 (require 'helm-swoop)
 
 ;; Change the keybinds to whatever you like :)
+(unbind-key "C-s")
+(bind-key* "C-s" 'helm-swoop)
 (global-set-key (kbd "M-i") 'helm-swoop)
 (global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
 (global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
@@ -58,11 +60,11 @@
 ;; Instead of helm-multi-swoop-all, you can also use helm-multi-swoop-current-mode
 (define-key helm-swoop-map (kbd "M-m") 'helm-multi-swoop-current-mode-from-helm-swoop)
 
-;; Move up and down like isearch
-(define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
-(define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
-(define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
-(define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)
+;; ;; Move up and down like isearch
+;; (define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
+;; (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
+;; (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
+;; (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)
 
 ;; Save buffer when helm-multi-swoop-edit complete
 (setq helm-multi-swoop-edit-save t)
