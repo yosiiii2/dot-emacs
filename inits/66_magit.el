@@ -1,7 +1,1 @@
-
-
-
 (require 'magit)
-
-
-

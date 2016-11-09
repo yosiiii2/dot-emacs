@@ -28,8 +28,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(recentf-exclude (quote ("Users/Admin/Desctop/programing/keisanki3/kadai*/*")))
  '(anzu-deactivate-region t)
  '(anzu-mode-lighter "")
  '(anzu-search-threshold 1000)
- '(org-agenda-files (quote ("~/Dropbox/org-mode/schedule.org"))))
+ '(org-agenda-files (quote ("~/Dropbox/org-mode/schedule.org")))
+ '(recentf-exclude
+   (quote
+	("Users/Admin/Desctop/programing/keisanki3/kadai*/*"))))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#1B1D1E" :foreground "#F8F8F2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "nil" :family "Ricty"))))
+ '(enh-ruby-op-face ((t (:foreground "orange"))))
+ '(py-variable-name-face ((t (:foreground "magenta")))))

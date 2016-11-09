@@ -30,7 +30,7 @@
 
 
 ;;C-c cでコンパイルする
-(define-key mode-specific-map "c" 'compile)
+(define-key mode-specific-map "c" 'smart-compile)
 
 
 ;;行表示
