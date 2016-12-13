@@ -3,15 +3,18 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+		org-return-indent
+		org-self-insert-command
+		org-force-self-insert
 		))
 
 (setq mc/cmds-to-run-once
       '(
+		describe-key-briefly
 		eshell
 		helm-M-x
+		helm-for-files
 		mc/mark-next-lines
-		org-force-self-insert
-		org-self-insert-command
 		point-undo
 		save-buffers-kill-terminal
 		undo-tree-visualize

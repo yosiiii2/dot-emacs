@@ -48,5 +48,5 @@
 (bind-key "C-c g" 'goto-line)
 
 ;; word region
-(unbind-key "C-@")
-(bind-key "C-@" 'mark-word*)
+;; (unbind-key "C-@")
+;; (bind-key "C-@" 'mark-word*)

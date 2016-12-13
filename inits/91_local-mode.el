@@ -1,5 +1,8 @@
 (require 'auto-complete)
-;; ;;scheme-mode *******************************************************************
+(require 'bind-key)
+
+;;; Code:
+;;scheme-mode *******************************************************************
 (setq scheme-program-name "java -jar /Users/admin/Desktop/programing/progen/jakld.jar")
 
 
@@ -43,7 +46,7 @@
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
 
 (setq Haskell-program-name "/usr/bin/ghci")
-(bind-key "C-c h" 'run-haskell)
+(bind-key "C-c h" 'run-haskell haskell-mode-map)
 
 (add-hook 'interactive-haskell-mode-hook 'ac-haskell-process-setup)
 (add-hook 'haskell-interactive-mode-hook 'ac-haskell-process-setup)
@@ -58,6 +61,10 @@
 ;; ;; Scala-mode *****************************************************************
 (require 'scala-mode)
 
+(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+(add-hook 'scala-mode-hook 'hs-minor-mode)
+
+
 ;;; Use auto-complete for ensime
 (require 'ensime)
 (setq ensime-completion-style 'auto-complete)
@@ -70,7 +77,8 @@
                     (let ((err (ensime-print-errors-at-point))) err))))
   (eldoc-mode +1))
 
-(bind-key "C-t" `ensime-type-at-point scala-mode-map)
+(bind-key "C-t" 'ensime-type-at-point scala-mode-map)
+(bind-key "C-@" 'hs-toggle-hiding scala-mode-map)
 
 (defun scala/completing-dot-company ()
   (cond (company-backend
@@ -105,10 +113,11 @@
 (setq ensime-startup-snapshot-notification nil)
 
 (add-hook 'ensime-mode-hook #'scala/enable-eldoc)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;; (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 (add-hook 'scala-mode-hook 'flycheck-mode)
 
 (setq ensime-use-helm t)
+
 
 
 ;;; ruby-mode
@@ -118,8 +127,8 @@
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
-(add-to-list 'auto-mode-alist
-             '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
+;; (add-to-list 'auto-mode-alist
+;;              '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
 
 
 ;; (autoload 'ruby-mode "ruby-mode"
@@ -142,8 +151,6 @@
 (require 'ruby-block)
 (ruby-block-mode t)
 (setq ruby-block-highlight-toggle t)
-
-
 
 
 
@@ -170,3 +177,13 @@
 (setq py-autopep8-options '("--max-line-length=200"))
 (setq flycheck-flake8-maximum-line-length 200)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+
+;; ocaml-mode
+(add-hook 'tuareg-mode-hook
+		  ;; Turn on auto-fill minor mode.
+		  (lambda () (auto-fill-mode 1)))
+
+(add-to-list 'auto-mode-alist '("\\.ml[iylp]?" . tuareg-mode))
+;; (autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code" t)
+;; (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
+;; (autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger" t)

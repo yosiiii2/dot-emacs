@@ -1,9 +1,13 @@
 .DS_Store
-undohist/
+.python-environments/
 /ac-comphist.dat
 auto-save-list/
 /bm-repository
+ditaa.jar
+/ensime
+/eshell/history
+/eshell/lastdir
 /recentf
-eshell/
-url/
 semanticdb/
+undohist/
+url/
