@@ -1,0 +1,10 @@
+alias gia git add
+alias ca cd ~
+alias l eshell/less $1
+alias d dired .
+alias f find-file $1
+alias o xdg-open
+alias lal ls -a -l
+alias la ls -a
+alias ll ls -ltr
+alias gis git status
