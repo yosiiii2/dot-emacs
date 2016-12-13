@@ -1,5 +1,5 @@
 .DS_Store
-.python-environments/
+/.python-environments/
 /ac-comphist.dat
 auto-save-list/
 /bm-repository
