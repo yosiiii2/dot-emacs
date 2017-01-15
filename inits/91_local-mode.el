@@ -187,3 +187,11 @@
 ;; (autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code" t)
 ;; (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
 ;; (autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger" t)
+
+
+;; go-lang-mode
+(add-to-list 'exec-path (expand-file-name "~/homebrew/bin"))
+(add-to-list 'exec-path (expand-file-name "~/dev/go-workspace/bin"))
+(add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "M-.") 'godef-jump)))

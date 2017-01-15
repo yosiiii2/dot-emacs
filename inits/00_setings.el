@@ -13,6 +13,8 @@
 (delete-selection-mode t)
 
 
+
+
 ;;タブ幅指定
 (setq-default tab-width 4)
 
