@@ -4,7 +4,6 @@
 (setq org-startup-folded 'showeverything) ;; tabで畳める系のものを、起動時には開いた状態で起動
 (setq org-latex-default-class "thesis") ;;下で定義してるthesisをdefaultのclassとして定義
 
-
 (setq org-confirm-babel-evaluate nil) ;; おまじない
 ;; (setq org-directory "~/Dropbox/org-mode/")
 
@@ -33,6 +32,23 @@
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 			   ))
+(add-to-list 'org-latex-classes
+             '("resume"
+               "\\documentclass{article}
+                [NO-PACKAGES]
+                [NO-DEFAULT-PACKAGES]
+                \\usepackage{amsmath}
+                \\usepackage{ulem}
+                \\usepackage[dvipdfmx]{graphicx}
+                \\usepackage{listings}
+                \\usepackage[top=10truemm,bottom=10truemm,left=25truemm,right=25truemm]{geometry}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+			   ))
+
 
 
 
