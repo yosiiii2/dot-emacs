@@ -32,6 +32,9 @@
  '(anzu-mode-lighter "")
  '(anzu-search-threshold 1000)
  '(org-agenda-files (quote ("~/Dropbox/org-mode/schedule.org")))
+ '(package-selected-packages
+   (quote
+	(neotree undohist undo-tree tuareg tab-jump-out smooth-scroll smartparens smart-newline smart-compile ruby-electric ruby-block rainbow-delimiters quickrun python-mode py-autopep8 point-undo php-mode persp-mode pdf-tools paredit org-tree-slide multiple-cursors minimap migemo magit jedi init-loader imenus ido-vertical-mode ido-occasional hlinum helm-flycheck go-snippets go-mode go-autocomplete fuzzy function-args flycheck-pyflakes flycheck-haskell faceup exec-path-from-shell eshell-z ensime enh-ruby-mode company-coq cdb ccc c-eldoc bm bind-key anzu aggressive-indent ace-isearch ac-helm ac-haskell-process ac-geiser)))
  '(recentf-exclude
    (quote
 	("Users/Admin/Desctop/programing/keisanki3/kadai*/*"))))

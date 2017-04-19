@@ -47,6 +47,19 @@
 ;; 行へ移動
 (bind-key "C-c g" 'goto-line)
 
+;; quickrunをC-rに割り当て
+(unbind-key "C-r")
+(bind-key "C-r" 'quickrun)
+
 ;; word region
 ;; (unbind-key "C-@")
 ;; (bind-key "C-@" 'mark-word*)
+
+
+;; scroll -> half scroll
+(unbind-key "C-v")
+(unbind-key "M-v")
+(bind-key* "C-v" 'View-scroll-half-page-forward)
+(bind-key* "M-v" 'View-scroll-half-page-backward)
+(bind-key* "C-S-v" 'scroll-up-command)
+(bind-key* "M-S-v" 'scroll-down-command)

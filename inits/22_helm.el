@@ -5,3 +5,5 @@
 (bind-key* "C-c y" 'helm-show-kill-ring)
 (unbind-key "M-x")
 (bind-key* "M-x" 'helm-M-x)
+
+(setq helm-locate-command "locate %s")

@@ -52,9 +52,9 @@
 (add-hook 'haskell-interactive-mode-hook 'ac-haskell-process-setup)
 (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'haskell-interactive-mode))
 
-;; ;; Coq-mode *****************************************************************
-(load "~/.emacs.d/lisp/PG/generic/proof-site")
-(add-hook 'coq-mode-hook #'company-coq-mode) ;; company-coqとの連携
+;; ;; ;; Coq-mode *****************************************************************
+;; (load "~/.emacs.d/lisp/PG/generic/proof-site")
+;; (add-hook 'coq-mode-hook #'company-coq-mode) ;; company-coqとの連携
 
 
 
@@ -62,6 +62,7 @@
 (require 'scala-mode)
 
 (add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+(add-to-list 'auto-mode-alist '("\\.scala.html$" . scala-mode))
 (add-hook 'scala-mode-hook 'hs-minor-mode)
 
 
@@ -77,7 +78,7 @@
                     (let ((err (ensime-print-errors-at-point))) err))))
   (eldoc-mode +1))
 
-(bind-key "C-t" 'ensime-type-at-point scala-mode-map)
+(bind-key* "C-t" 'ensime-type-at-point scala-mode-map)
 (bind-key "C-@" 'hs-toggle-hiding scala-mode-map)
 
 (defun scala/completing-dot-company ()
@@ -116,8 +117,8 @@
 ;; (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 (add-hook 'scala-mode-hook 'flycheck-mode)
 
-(setq ensime-use-helm t)
 
+(setq ensime-use-helm t)
 
 
 ;;; ruby-mode
@@ -178,15 +179,15 @@
 (setq flycheck-flake8-maximum-line-length 200)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
-;; ocaml-mode
-(add-hook 'tuareg-mode-hook
-		  ;; Turn on auto-fill minor mode.
-		  (lambda () (auto-fill-mode 1)))
+;; ;; ocaml-mode
+;; (add-hook 'tuareg-mode-hook
+;; 		  ;; Turn on auto-fill minor mode.
+;; 		  (lambda () (auto-fill-mode 1)))
 
-(add-to-list 'auto-mode-alist '("\\.ml[iylp]?" . tuareg-mode))
-;; (autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code" t)
-;; (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
-;; (autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger" t)
+;; (add-to-list 'auto-mode-alist '("\\.ml[iylp]?" . tuareg-mode))
+;; ;; (autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code" t)
+;; ;; (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
+;; ;; (autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger" t)
 
 
 ;; go-lang-mode
