@@ -2,37 +2,37 @@
 (require 'bind-key)
 
 ;;; Code:
-;;scheme-mode *******************************************************************
-(setq scheme-program-name "java -jar /Users/admin/Desktop/programing/progen/jakld.jar")
+;; ;;scheme-mode *******************************************************************
+;; (setq scheme-program-name "java -jar /Users/admin/Desktop/programing/progen/jakld.jar")
 
 
-;;run-geiser ********************************************************************
-(setq geiser-racket-binary "/Applications/Racket v6.5/bin/gracket-text")
-(setq geiser-active-implementations '(racket))
+;; ;;run-geiser ********************************************************************
+;; (setq geiser-racket-binary "/Applications/Racket v6.5/bin/gracket-text")
+;; (setq geiser-active-implementations '(racket))
 
-;;racket-mode *******************************************************************
-(setq racket-program-mode "racket")
-(setq geiser-active-implementations '(racket))
+;; ;;racket-mode *******************************************************************
+;; (setq racket-program-mode "racket")
+;; (setq geiser-active-implementations '(racket))
 
 ;; C-c C-a で実行
 
 
 ;; ;; smalltalk-mode *******************************************************************
 
-(push (cons "\\.star\\'"
-			(catch 'archive-mode
-			  (dolist (mode-assoc auto-mode-alist 'archive-mode)
-				(and (string-match (car mode-assoc) "Starfile.zip")
-					 (functionp (cdr mode-assoc))
-					 (throw 'archive-mode (cdr mode-assoc))))))
-      auto-mode-alist)
+;; (push (cons "\\.star\\'"
+;; 			(catch 'archive-mode
+;; 			  (dolist (mode-assoc auto-mode-alist 'archive-mode)
+;; 				(and (string-match (car mode-assoc) "Starfile.zip")
+;; 					 (functionp (cdr mode-assoc))
+;; 					 (throw 'archive-mode (cdr mode-assoc))))))
+;;       auto-mode-alist)
 
-(autoload 'smalltalk-mode "smalltalk-mode.elc" "" t)
-(autoload 'gst "gst-mode.elc" "" t)
+;; (autoload 'smalltalk-mode "smalltalk-mode.elc" "" t)
+;; (autoload 'gst "gst-mode.elc" "" t)
 
-(push '("\\.st\\'" . smalltalk-mode) auto-mode-alist)
+;; (push '("\\.st\\'" . smalltalk-mode) auto-mode-alist)
 
-(push "\\.star\\'" inhibit-local-variables-regexps)
+;; (push "\\.star\\'" inhibit-local-variables-regexps)
 
 ;; ;; Haskell-mode *****************************************************************
 (require 'haskell-mode)
@@ -190,9 +190,9 @@
 ;; ;; (autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger" t)
 
 
-;; go-lang-mode
-(add-to-list 'exec-path (expand-file-name "~/homebrew/bin"))
-(add-to-list 'exec-path (expand-file-name "~/dev/go-workspace/bin"))
-(add-hook 'before-save-hook 'gofmt-before-save)
-(add-hook 'go-mode-hook (lambda ()
-                          (local-set-key (kbd "M-.") 'godef-jump)))
+;; ;; go-lang-mode
+;; (add-to-list 'exec-path (expand-file-name "~/homebrew/bin"))
+;; (add-to-list 'exec-path (expand-file-name "~/dev/go-workspace/bin"))
+;; (add-hook 'before-save-hook 'gofmt-before-save)
+;; (add-hook 'go-mode-hook (lambda ()
+;;                           (local-set-key (kbd "M-.") 'godef-jump)))
