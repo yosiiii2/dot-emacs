@@ -1,11 +1,11 @@
-alias all lal $*
-alias gis git status
-alias ll ls -ltr
-alias la ls -a
-alias lal ls -a -l
-alias o xdg-open
-alias f find-file $1
-alias d dired .
-alias l eshell/less $1
-alias ca cd ~
 alias gia git add
+alias ca cd ~
+alias l eshell/less $1
+alias d dired .
+alias f find-file $1
+alias o xdg-open
+alias lal ls -a -l
+alias la ls -a
+alias ll ls -ltr
+alias gis git status
+alias all lal $*
