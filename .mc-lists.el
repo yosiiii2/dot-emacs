@@ -3,9 +3,10 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+		org-beginning-of-line
+		org-force-self-insert
 		org-return-indent
 		org-self-insert-command
-		org-force-self-insert
 		))
 
 (setq mc/cmds-to-run-once

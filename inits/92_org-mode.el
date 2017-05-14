@@ -23,8 +23,10 @@
                 [NO-DEFAULT-PACKAGES]
                 \\usepackage{amsmath}
                 \\usepackage{ulem}
+                \\usepackage{url}
                 \\usepackage[dvipdfmx]{graphicx}
                 \\usepackage{listings}
+                \\usepackage{indentfirst}
                 \\usepackage[top=10truemm,bottom=10truemm,left=25truemm,right=25truemm]{geometry}"
                ("\\section{%s}" . "\\section*{%s}")
                ("\\subsection{%s}" . "\\subsection*{%s}")
@@ -32,6 +34,49 @@
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 			   ))
+
+(add-to-list 'org-latex-classes
+             '("report"
+               "\\documentclass[a4paper,12pt]{jsarticle}
+                [NO-PACKAGES]
+                [NO-DEFAULT-PACKAGES]
+                \\usepackage{amsmath}
+                \\usepackage{ulem}
+                \\usepackage{url}
+                \\usepackage[dvipdfmx]{graphicx}
+                \\usepackage{listings}
+                \\usepackage{indentfirst}
+                \\usepackage[top=15truemm,bottom=10truemm,left=30truemm,right=30truemm]{geometry}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+			   ))
+
+(add-to-list 'org-latex-classes
+             '("paper"
+			   "\\documentclass{deimj}
+                [NO-PACKAGES]
+                [NO-DEFAULT-PACKAGES]
+			    \\usepackage[utf8]{inputenc}
+			    \\usepackage[ipaex]{pxchfon}
+			    \\usepackage[dvipdfmx]{graphicx}
+			    \\usepackage{algorithm}
+			    \\usepackage{algorithmic}
+                \\usepackage{amsmath}
+                \\usepackage{ulem}
+                \\usepackage{url}
+                \\usepackage{listings}
+			    \\hoffset -10mm % <-- 左に 10mm 移動
+			    \\voffset -10mm % <-- 上に 10mm 移動"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+			   ))
+
 (add-to-list 'org-latex-classes
              '("resume"
                "\\documentclass{article}
@@ -39,6 +84,7 @@
                 [NO-DEFAULT-PACKAGES]
                 \\usepackage{amsmath}
                 \\usepackage{ulem}
+                \\usepackage{url}
                 \\usepackage[dvipdfmx]{graphicx}
                 \\usepackage{listings}
                 \\usepackage[top=10truemm,bottom=10truemm,left=25truemm,right=25truemm]{geometry}"
