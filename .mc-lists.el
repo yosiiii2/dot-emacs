@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+		kill-region
 		org-beginning-of-line
 		org-force-self-insert
 		org-return-indent
