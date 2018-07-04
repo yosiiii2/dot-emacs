@@ -1,8 +1,12 @@
 ;;to load init-loader
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")
+		("marmalade" . "http://marmalade-repo.org/packages/")
+		))
 
 (setq load-path (cons "~/.emacs.d/elpa/" load-path))
 (setq load-path (cons "~/.emacs.d/elpa/ox-hatena/" load-path))
@@ -34,10 +38,10 @@
  '(org-agenda-files (quote ("~/Dropbox/org-mode/schedule.org")))
  '(package-selected-packages
    (quote
-	(neotree undohist undo-tree tuareg tab-jump-out smooth-scroll smartparens smart-newline smart-compile ruby-electric ruby-block rainbow-delimiters quickrun python-mode py-autopep8 point-undo php-mode persp-mode pdf-tools paredit org-tree-slide multiple-cursors minimap migemo magit jedi init-loader imenus ido-vertical-mode ido-occasional hlinum helm-flycheck go-snippets go-mode go-autocomplete fuzzy function-args flycheck-pyflakes flycheck-haskell faceup exec-path-from-shell eshell-z ensime enh-ruby-mode company-coq cdb ccc c-eldoc bm bind-key anzu aggressive-indent ace-isearch ac-helm ac-haskell-process ac-geiser)))
+	(avy helm-swoop neotree undohist undo-tree tab-jump-out smooth-scroll smartparens smart-newline smart-compile ruby-electric ruby-block rainbow-delimiters quickrun python-mode py-autopep8 point-undo php-mode paredit multiple-cursors migemo magit jedi init-loader imenus ido-vertical-mode ido-occasional hlinum helm-flycheck go-snippets go-mode go-autocomplete fuzzy function-args flycheck-pyflakes flycheck-haskell faceup exec-path-from-shell ensime enh-ruby-mode cdb ccc c-eldoc bm bind-key anzu aggressive-indent ace-isearch ac-helm ac-haskell-process)))
  '(recentf-exclude
    (quote
-	("Users/Admin/Desctop/programing/keisanki3/kadai*/*"))))
+	("Users/Admin/Desctop/programing/keisanki3/kadai*/*")) t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

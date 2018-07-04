@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: rep_macro
-# key: repm
-# --
-#define REP(i,n) for (int i=0;i<(n);i++)

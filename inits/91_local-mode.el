@@ -111,7 +111,8 @@
          (scala/completing-dot-ac))))
 
 ;; Initialization
-(setq ensime-startup-snapshot-notification nil)
+(setq ensime-startup-notification nil)
+
 
 (add-hook 'ensime-mode-hook #'scala/enable-eldoc)
 ;; (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
@@ -155,7 +156,7 @@
 
 
 
-;; pytho-mode ;;;;;;;
+;; python-mode ;;;;;;;
 (require 'python-mode)
 (require 'jedi)
 (require 'py-autopep8)

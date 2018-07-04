@@ -8,11 +8,11 @@
 ;; (setq org-directory "~/Dropbox/org-mode/")
 
 ;; ditaaとdotを使えるようにする
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((ditaa . t)
-   (dot . t)))
-(setq org-ditaa-jar-path "~/.emacs.d/ditaa.jar")
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((ditaa . t)
+;;    (dot . t)))
+;; (setq org-ditaa-jar-path "~/.emacs.d/ditaa.jar")
 
 
 ;;プリアンブル設定
@@ -103,8 +103,8 @@
 ;; latexにコンパイルするためのコマンド列を書いておく
 ;; test.texに対して、%fが"test.tex"で、%bが"test"になる
 
-(bind-key "C-." 'org-table-previous-field)
-(bind-key "C-c a" 'org-agenda org-mode-map)
+;; (bind-key "C-." 'org-table-previous-field org-mode-map)
+;; (bind-key "C-c a" 'org-agenda org-mode-map)
 ;; (setq org-agenda-files '("/Users/admin/Dropbox/org-mode/schedule.org"))
 
 (setq org-src-preserve-indentation t)

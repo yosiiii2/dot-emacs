@@ -5,6 +5,7 @@
       '(
 		kill-region
 		org-beginning-of-line
+		org-delete-char
 		org-force-self-insert
 		org-return-indent
 		org-self-insert-command

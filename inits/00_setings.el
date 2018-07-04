@@ -95,3 +95,7 @@
 
 ;; コメントアウトのスタイル設定
 (setq comment-style 'multi-line)
+
+(ns-toggle-toolbar)
+
+(toggle-frame-fullscreen)
